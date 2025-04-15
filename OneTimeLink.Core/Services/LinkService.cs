@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using OneTimeLink.Core.Configurations;
 using OneTimeLink.Core.Data;
@@ -16,14 +17,14 @@ public class LinkService
         _options = options.Value;
     }
     
-    public string GenerateLink(string baseUrl, string userId, string purpose, TimeSpan expiration)
+    public async Task<string> GenerateLinkAsync(string baseUrl, string userId, string purpose, TimeSpan expiration)
     {
         // Generate secure random token
         var token = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32))
             .Replace("+", "-")
             .Replace("/", "_")
             .Replace("=", "");
-            
+        
         var link = new Link
         {
             Id = Guid.NewGuid(),
@@ -34,42 +35,46 @@ public class LinkService
             Purpose = purpose,
             UserId = userId
         };
-        
-        _context.OneTimeLinks.Add(link);
-        _context.SaveChanges();
-        
+    
+        _context.Links.Add(link);
+        await _context.SaveChangesAsync();
+    
         return $"{baseUrl}/use-link/{token}";
     }
-    
-    public Link ValidateAndUseLink(string token)
+
+    public async Task<Link> ValidateAndUseLinkAsync(string token)
     {
-        // Use transaction to prevent race conditions
-        using var transaction = _context.Database.BeginTransaction();
-        
-        var link = _context.OneTimeLinks
+        var link = await _context.Links
             .Where(l => l.Token == token && !l.IsUsed && l.ExpiresAt > DateTime.UtcNow)
-            .FirstOrDefault();
-            
+            .FirstOrDefaultAsync();
+        
         if (link == null)
         {
             return null; // Invalid or already used
         }
-        
+    
         // Mark as used
         link.IsUsed = true;
-        _context.SaveChanges();
-        transaction.Commit();
-        
+        await _context.SaveChangesAsync();
+    
         return link;
     }
     
     // Cleanup expired tokens
-    public void CleanupExpiredLinks()
+    public async Task CleanupExpiredLinksAsync()
     {
-        var expiredLinks = _context.OneTimeLinks
-            .Where(l => l.ExpiresAt < DateTime.UtcNow);
-            
-        _context.OneTimeLinks.RemoveRange(expiredLinks);
-        _context.SaveChanges();
+        var expiredLinks = await _context.Links
+            .Where(l => l.ExpiresAt < DateTime.UtcNow)
+            .ToListAsync();
+        
+        _context.Links.RemoveRange(expiredLinks);
+        await _context.SaveChangesAsync();
+    }
+    
+    // Method to check if a token exists without using it
+    public async Task<bool> TokenExistsAsync(string token)
+    {
+        return await _context.Links
+            .AnyAsync(l => l.Token == token && !l.IsUsed && l.ExpiresAt > DateTime.UtcNow);
     }
 }

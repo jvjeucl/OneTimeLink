@@ -12,7 +12,7 @@ public class ApplicationDbContext : DbContext
     {
     }
     
-    public DbSet<Link> OneTimeLinks { get; set; }
+    public DbSet<Link> Links { get; set; }
     
     // Add other DbSets for your application entities here
     
