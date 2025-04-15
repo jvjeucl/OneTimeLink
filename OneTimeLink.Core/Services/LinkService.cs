@@ -1,4 +1,6 @@
 using System.Security.Cryptography;
+using Microsoft.Extensions.Options;
+using OneTimeLink.Core.Configurations;
 using OneTimeLink.Core.Data;
 using OneTimeLink.Core.Models;
 
@@ -7,10 +9,11 @@ namespace OneTimeLink.Core.Services;
 public class LinkService
 {
     private readonly ApplicationDbContext _context;
-    
-    public LinkService(ApplicationDbContext context)
+    private readonly LinkOptions _options;
+    public LinkService(ApplicationDbContext context, IOptions<LinkOptions> options)
     {
         _context = context;
+        _options = options.Value;
     }
     
     public string GenerateLink(string baseUrl, string userId, string purpose, TimeSpan expiration)
