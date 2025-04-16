@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackageId>OneTimeLink.EntityFrameworkCore</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Your Name</Authors>
+        <Description>Entity Framework Core implementation for OneTimeLink</Description>
+        <PackageTags>one-time-link;entityframeworkcore;database</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.20" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\OneTimeLink.Core\OneTimeLink.Core.csproj" />
+    </ItemGroup>
+</Project>
