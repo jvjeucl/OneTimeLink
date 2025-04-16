@@ -28,8 +28,8 @@ jobs:
 
       - name: Pack
         run: |
-          dotnet pack src/OneTimeLink.Core/OneTimeLink.Core.csproj --no-build --configuration Release --output nuget-packages
-          dotnet pack src/OneTimeLink.EntityFrameworkCore/OneTimeLink.EntityFrameworkCore.csproj --no-build --configuration Release --output nuget-packages
+          dotnet pack OneTimeLink.Core/OneTimeLink.Core.csproj --no-build --configuration Release --output nuget-packages
+          dotnet pack OneTimeLink.EntityFrameworkCore/OneTimeLink.EntityFrameworkCore.csproj --no-build --configuration Release --output nuget-packages
 
       - name: Publish to NuGet
         run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
