@@ -5,8 +5,12 @@ on:
   release:
     types: [published]
 
+env:
+  CORE_PROJECT_PATH: OneTimeLink.Core/OneTimeLink.Core.csproj
+  EF_PROJECT_PATH: OneTimeLink.EntityFrameworkCore/OneTimeLink.EntityFrameworkCore.csproj
+
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     
     steps:
@@ -16,6 +20,12 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 7.0.x
+
+      - name: Debug directory structure
+        run: |
+          pwd
+          ls -la
+          find . -name "*.csproj" -type f
 
       - name: Restore dependencies
         run: dotnet restore
@@ -28,8 +38,8 @@ jobs:
 
       - name: Pack
         run: |
-          dotnet pack $GITHUB_WORKSPACE/OneTimeLink.Core/OneTimeLink.Core.csproj --no-build --configuration Release --output nuget-packages
-          dotnet pack $GITHUB_WORKSPACE/OneTimeLink.EntityFrameworkCore/OneTimeLink.EntityFrameworkCore.csproj --no-build --configuration Release --output nuget-packages
-          
+          dotnet pack ${{ env.CORE_PROJECT_PATH }} --no-build --configuration Release --output nuget-packages
+          dotnet pack ${{ env.EF_PROJECT_PATH }} --no-build --configuration Release --output nuget-packages
+
       - name: Publish to NuGet
         run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
