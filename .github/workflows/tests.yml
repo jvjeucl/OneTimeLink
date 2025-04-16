@@ -24,6 +24,12 @@ jobs:
 
       - name: Build
         run: dotnet build --no-restore --configuration Release
-
+        
+      - name: Debug directory structure
+        run: |
+          pwd
+          ls -la
+          find . -name "*.csproj" -type f
+          
       - name: Test
         run: dotnet test --no-build --verbosity normal --configuration Release
