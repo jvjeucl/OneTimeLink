@@ -1,7 +1,7 @@
 # OneTimeLink
 
-![Build Status](https://github.com/jvjeucl/OneTimeLink/workflows/build/badge.svg)
-![Tests Status](https://github.com/jvjeucl/OneTimeLink/workflows/tests/badge.svg)
+![Build](https://github.com/jvjeucl/OneTimeLink/actions/workflows/ci.yml/badge.svg?event=push&branch=main&job=build)
+![Tests](https://github.com/jvjeucl/OneTimeLink/actions/workflows/ci.yml/badge.svg?event=push&branch=main&job=test)
 [![NuGet](https://img.shields.io/nuget/v/OneTimeLink.svg)](https://www.nuget.org/packages/OneTimeLink/)
 
 A robust, lightweight .NET library for creating and validating one-time use links. Perfect for password reset emails, email verification, secure invitations, and more.
