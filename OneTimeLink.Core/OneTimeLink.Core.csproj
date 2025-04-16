@@ -10,7 +10,7 @@
         <PackageTags>one-time-link;security;authentication</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <LangVersion>default</LangVersion>
+        <LangVersion>11</LangVersion>
     </PropertyGroup>
 
 <!--    <ItemGroup>-->

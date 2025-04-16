@@ -9,7 +9,7 @@
         <Description>Entity Framework Core implementation for OneTimeLink</Description>
         <PackageTags>one-time-link;entityframeworkcore;database</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <LangVersion>default</LangVersion>
+        <LangVersion>11</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
