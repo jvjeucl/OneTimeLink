@@ -24,13 +24,3 @@ jobs:
 
       - name: Build
         run: dotnet build --no-restore --configuration Release
-
-      - name: Update build badge
-        uses: RubbaBoy/BYOB@v1.3.0
-        with:
-          name: build
-          label: build
-          status: success
-          color: green
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

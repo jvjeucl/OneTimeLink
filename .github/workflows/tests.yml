@@ -27,13 +27,3 @@ jobs:
 
       - name: Test
         run: dotnet test --no-build --verbosity normal --configuration Release
-
-      - name: Update tests badge
-        uses: RubbaBoy/BYOB@v1.3.0
-        with:
-          name: tests
-          label: tests
-          status: passing
-          color: green
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
