@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Verification Email Sent";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card text-center">
+            <div class="card-header bg-success text-white">
+                <h2>Verification Email Sent</h2>
+            </div>
+            <div class="card-body">
+                <p class="lead">
+                    We've sent a verification email to your address.
+                </p>
+                <p>
+                    Please check your email and click the verification link to complete the process.
+                </p>
+                <hr />
+                <p class="text-muted">
+                    <strong>Note:</strong> Since this is a demo, no actual email is sent.
+                    Check your application logs to see the verification link.
+                </p>
+                <div class="mt-4">
+                    <a asp-action="Index" class="btn btn-primary">Back to Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

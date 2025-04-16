@@ -1,0 +1,47 @@
+@model IEnumerable<OneTimeLink.Samples.Web.Data.User>
+@{
+    ViewData["Title"] = "Email Verification Demo";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Email Verification Demo</h1>
+    <p>This sample demonstrates how to use OneTimeLink for email verification.</p>
+    
+    <div class="mt-4">
+        <a asp-action="SendVerification" class="btn btn-primary">Send Verification Email</a>
+    </div>
+    
+    <hr />
+    
+    <h2>Sample Users</h2>
+    <p class="text-muted">These users are automatically created in the sample database</p>
+    
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>
+                    @if (user.IsEmailVerified)
+                    {
+                        <span class="badge bg-success">Verified</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning text-dark">Not Verified</span>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

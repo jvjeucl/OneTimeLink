@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Verification Failed";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card text-center">
+            <div class="card-header bg-danger text-white">
+                <h2>Verification Failed</h2>
+            </div>
+            <div class="card-body">
+                <p class="lead">
+                    We couldn't verify your email address.
+                </p>
+                <p>
+                    The verification link may be invalid, expired, or has already been used.
+                </p>
+                <div class="mt-4">
+                    <a asp-action="SendVerification" class="btn btn-primary">Try Again</a>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Back to Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

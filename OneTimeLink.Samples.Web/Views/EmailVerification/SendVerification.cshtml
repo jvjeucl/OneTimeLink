@@ -1,0 +1,36 @@
+@model OneTimeLink.Samples.Web.Models.SendVerificationViewModel
+@{
+    ViewData["Title"] = "Send Verification Email";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h2>Send Verification Email</h2>
+            </div>
+            <div class="card-body">
+                <form asp-action="SendVerification" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <div class="form-text">
+                            Use one of these sample emails: john@example.com or jane@example.com
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Send Verification Email</button>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <a asp-action="Index" class="btn btn-outline-secondary btn-sm">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

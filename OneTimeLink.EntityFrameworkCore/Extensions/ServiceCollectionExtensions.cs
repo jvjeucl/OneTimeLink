@@ -5,7 +5,7 @@ using OneTimeLink.Core.Configurations;
 using OneTimeLink.Core.Services;
 using OneTimeLink.Core.Data;
 
-namespace OneTimeLink.Core.Extensions;
+namespace OneTimeLink.EntityFrameworkCore.Extensions;
 
 public static class ServiceCollectionExtensions
 {

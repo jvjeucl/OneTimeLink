@@ -1,0 +1,11 @@
+<Project>
+    <PropertyGroup>
+        <Authors>Jakob Jensen</Authors>
+        <PackageProjectUrl>https://github.com/jvjeucl/OneTimeLink</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/jvjeucl/OneTimeLink</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageTags>one-time-link;security;authentication</PackageTags>
+        <Version>1.0.0</Version>
+        <Description>A robust library for creating and managing one-time use links</Description>
+    </PropertyGroup>
+</Project>
