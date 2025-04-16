@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using OneTimeLink.EntityFrameworkCore.Extensions;
-using OneTimeLink.Core.Configurations;
-using OneTimeLink.EntityFrameworkCore.Extensions;
 using OneTimeLink.Samples.Web;
 using OneTimeLink.Samples.Web.Data;
 

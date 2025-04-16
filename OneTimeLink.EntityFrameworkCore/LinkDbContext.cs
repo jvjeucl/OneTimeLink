@@ -1,7 +1,6 @@
 using OneTimeLink.Core.Data;
 using OneTimeLink.Core.Models;
 using Microsoft.EntityFrameworkCore;
-using OneTimeLink.Core.Models;
 
 namespace OneTimeLink.EntityFrameworkCore;
 
