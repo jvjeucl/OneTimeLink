@@ -33,7 +33,9 @@ jobs:
 
       - name: Test
         run: dotnet test --no-build --verbosity normal --configuration Release
-
+      - name: debug
+        run: find . -name "*.csproj" -type f
+        
       - name: Pack specific projects
         run: |
           echo "Packing Core project"
