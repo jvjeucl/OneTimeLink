@@ -9,6 +9,7 @@
         <Description>Library for generating and validating one-time use links</Description>
         <PackageTags>one-time-link;security;authentication</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <LangVersion>11</LangVersion>
     </PropertyGroup>
 
