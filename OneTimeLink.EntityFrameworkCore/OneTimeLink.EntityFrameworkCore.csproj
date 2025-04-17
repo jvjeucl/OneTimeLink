@@ -9,11 +9,12 @@
         <Description>Entity Framework Core implementation for OneTimeLink</Description>
         <PackageTags>one-time-link;entityframeworkcore;database</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <LangVersion>11</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+        <None Include="../README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>
