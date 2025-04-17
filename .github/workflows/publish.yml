@@ -18,13 +18,6 @@ jobs:
         with:
           dotnet-version: 9.0.x
 
-      - name: Debug directory structure
-        run: |
-          pwd
-          echo "Repository root contents:"
-          ls -la
-          echo "Looking for .csproj files:"
-          find . -name "*.csproj" -type f
 
       - name: Restore dependencies
         run: dotnet restore
@@ -34,13 +27,7 @@ jobs:
 
       - name: Test
         run: dotnet test --no-build --verbosity normal --configuration Release
-      - name: debug
-        run: find . -name "*.csproj" -type f
         
-      - name: Copy README to project directories
-        run: |
-          cp README.md OneTimeLink.Core/
-          cp README.md OneTimeLink.EntityFrameworkCore/
           
       - name: Pack specific projects
         run: |
