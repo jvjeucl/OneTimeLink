@@ -37,6 +37,11 @@ jobs:
       - name: debug
         run: find . -name "*.csproj" -type f
         
+      - name: Copy README to project directories
+        run: |
+          cp README.md OneTimeLink.Core/
+          cp README.md OneTimeLink.EntityFrameworkCore/
+          
       - name: Pack specific projects
         run: |
           echo "Packing Core project"
